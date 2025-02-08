@@ -1,0 +1,18 @@
+/* styles.css */
+.custom_pagination {
+  position: absolute; /* Change to relative, absolute, or fixed as needed */
+  bottom: 30px; /* Adjust the distance from the bottom */
+  left: 520%; /* Center horizontally */
+  transform: translateX(-50%); /* Center the pagination */
+  z-index: 10; /* Ensure it appears above other elements */
+  display: flex; /* Align bullets in a row */
+  justify-content: center; /* Center bullets */
+}
+.custom_pagination .swiper-pagination-bullet {
+  background: #fff; /* Bullet color */
+  opacity: 0.7; /* Default opacity */
+  transition: opacity 0.3s; /* Animations */
+}
+.custom_pagination .swiper-pagination-bullet .swiper-pagination-bullet-active {
+  opacity: 1; /* Active bullet opacity */
+}/*# sourceMappingURL=HomeModule.module.css.map */

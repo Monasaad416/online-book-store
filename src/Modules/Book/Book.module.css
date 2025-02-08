@@ -1,0 +1,56 @@
+
+.swiper-pagination.swiper-pagination1.swiper-pagination-bullet {
+  background-color: #ED553B !important;
+  width: 50px !important;
+  height: 50px !important;
+  text-align: center !important;
+  color: #fff;
+  font-size: 18px;
+  margin: 0 15px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute !important;
+  bottom: var(--swiper-pagination-bottom, 8px) !important;
+  top: var(--swiper-pagination-top, auto) !important;
+  background-color: #ED553B !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important; /* Simplified */
+}
+
+.swiper-button-prev {
+  left: 80% !important; /* Removed quotes */
+}
+
+.swiper-button-next {
+  right: 30% !important; /* Removed quotes */
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-family: swiper-icons;
+  font-size: 20px;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+  color: #fff;
+}
+.book_img {
+  display: block;
+  position: relative;
+    text-align: center;
+    transition: border 0.3s; /* Optional: Smooth transition */
+}
+
+.book_img:hover {
+    border: 2px solid #436efc;
+    cursor: pointer;
+}
+
+
+.book_img:hover .add_to_cart {
+    opacity: 0 !important; /* Show button on hover */
+}

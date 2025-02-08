@@ -1,0 +1,151 @@
+ body ,html{
+  font-family: 'Inter';
+ }
+ .book_img:hover{
+    border: 1px solid #062bbd !important;
+ }
+
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.swiper-pagination-horizontal{
+  top: 85% !important;
+}
+/* 
+@media (max-width: 992px) {
+  .swiper-pagination-horizontal{
+    top: 85% !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .swiper-pagination-horizontal{
+    top: 85% !important;
+  }
+} */
+
+
+.swiper-pagination-bullet {
+  width: 12px; 
+  height: 12px;
+  background: lightgray;
+  border-radius: 50%; 
+  margin: 0 15px !important; 
+  position: relative;
+
+}
+
+.swiper-pagination-bullet-active {
+  background: transparent !important; 
+}
+
+.swiper-pagination-bullet-active::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 32px; 
+  height: 32px;
+  border: 1px solid #ED553B; 
+  border-radius: 50%; 
+}
+
+.swiper-pagination-bullet-active::after {
+  content: '';
+  position: absolute;
+  top: 0; /* Center it over the bullet */
+  left: 0; /* Center it over the bullet */
+  width: 12px; 
+  height: 12px;
+  background: #ED553B; /* Color for the inner active bullet */
+  border-radius: 50%; /* Make it circular */
+}
+
+
+
+/* Book bullets styling*/
+
+.swiper_container {
+  position: relative !important;
+  padding-bottom:70px !important ;
+
+}
+
+
+
+
+.swiper_container .swiper-pagination {
+  position: absolute !important;
+  top:1100px !important;
+  right: 50% !important;
+  width: auto !important;
+  left: auto !important;
+  margin: 0;
+  z-index: 999999999999!important;
+}
+@media (max-width: 992px) {
+  .swiper_container .swiper-pagination{
+    right: 20% !important;
+  }
+}
+.swiper_container .swiper-pagination-bullet {
+  background-color: #ED553B !important;
+  color:#fff !important;
+  border:1px solid #ED553B !important;
+  width: 25px !important;
+  height: 25px !important;
+  padding: 8px;
+  border-radius:50% !important;
+  text-align: center !important;
+
+}
+.swiper_container .swiper-pagination-bullet-active {
+  color: #ED553B !important;
+  background-color:#fff !important;
+  border:1px solid #ED553B !important;
+  width: 25px !important;
+  height: 25px !important;
+  padding: 8px;
+  border-radius:50% !important;
+  text-align: center !important;
+
+}
+
+
+.swiper_container .swiper-pagination-bullet-active::before {
+  content: '' !important;
+  position: absolute;
+  width: 0; 
+  height: 0;
+
+}
+
+.swiper_container .swiper-pagination-bullet-active::after {
+   content: '' !important;
+  position: absolute;
+  width: 0; 
+  height: 0;
+
+}
+
+
+

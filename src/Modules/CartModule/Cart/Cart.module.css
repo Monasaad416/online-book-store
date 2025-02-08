@@ -1,0 +1,17 @@
+.book_img{
+    width: 80px !important;
+}
+@media (max-width: 992px) {
+  .book_img{
+      width: 50px !important;
+      padding: 0;
+      margin: 0;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .book_img{
+      width: 40px !important;
+  }
+}

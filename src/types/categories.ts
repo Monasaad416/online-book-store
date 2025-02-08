@@ -1,0 +1,1 @@
+export type TCategories = {_id:string; title:string; status:string ;books:object[] };
