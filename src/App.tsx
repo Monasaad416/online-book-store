@@ -5,19 +5,19 @@ import { ToastContainer } from "react-toastify";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-import AuthLayout from '@modules/SharedModule/AuthLayout/AuthLayout.tsx';
-import MasterLayout from '@modules/SharedModule/MasterLayout/MasterLayout.tsx';
+import AuthLayout from '@sharedModule/AuthLayout/AuthLayout';
+import MasterLayout from '@sharedModule/MasterLayout/MasterLayout';
 import { lazy, Suspense } from "react";
 
 
-const ResetPassword  = lazy(()=>import('@modules/AuthModule/ResetPassword/ResetPassword.tsx')) ;
-const Login  = lazy(()=>import('@modules/AuthModule/Login/Login.tsx'))  ;
-const ForgetPassword  = lazy(()=>import( '@modules/AuthModule/ForgetPassword/ForgetPassword.tsx')) ;
-const Register  = lazy(()=>import('@modules/AuthModule/Register/Register.tsx'))  ;
+const ResetPassword  = lazy(()=>import('@authModule/ResetPassword/ResetPassword')) ;
+const Login  = lazy(()=>import('@authModule/Login/Login.tsx'))  ;
+const ForgetPassword  = lazy(()=>import( '@authModule/ForgetPassword/ForgetPassword')) ;
+const Register  = lazy(()=>import('@authModule/Register/Register.tsx'))  ;
 
 
-const NotFound = lazy(()=> import('@modules/SharedModule/NotFound/NotFound.tsx'));
-const ChangePassword = lazy(()=> import('@modules/AuthModule/ChangePassword/ChangePassword.tsx'));
+const NotFound = lazy(()=> import('@sharedModule/NotFound/NotFound'));
+const ChangePassword = lazy(()=> import('@authModule/ChangePassword/ChangePassword'));
 
 
 const Home = lazy(()=>import('@homeModule/Home.tsx')) ;

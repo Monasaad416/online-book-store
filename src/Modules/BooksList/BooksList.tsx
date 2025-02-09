@@ -1,8 +1,6 @@
 import { Box, Typography, Card, CardContent, Paper, Skeleton} from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper.css';
-import 'swiper/modules/grid.css';
-import 'swiper/modules/pagination.css';
+import 'swiper/swiper-bundle.css'
 import { Pagination,Grid } from 'swiper/modules';
 import { useEffect } from 'react';
 
@@ -11,7 +9,7 @@ import styles from './BookList.module.css';
 import AddToCart from '../AddToCartModule/AddToCart.tsx';
 import { useAppDispatch, useAppSelector } from '@redux/hook.ts';
 import { actGetProducts, removeProducts } from '@redux/products/productsSlice.ts';
-import Loading from '@modules/FeedBack/Loading/Loading.tsx';
+import Loading from '@feedBack/Loading/Loading.tsx';
 
 const BooksList: React.FC = () => {
   

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+import Navbar from '@sharedModule/Navbar/Navbar';
+import Footer from '@sharedModule/Footer/Footer';
 import { Box } from '@mui/material';
 
 const MasterLayout = () => {

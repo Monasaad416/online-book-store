@@ -11,7 +11,7 @@ import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import logo from '../../../assets/imgs/footer/sample logo 1.png'
 import { Link } from 'react-router-dom';
-import CartIcon from '../CartIcon/CartIcon.tsx';
+import CartIcon from '@sharedModule/CartIcon/CartIcon';
 import useScroll from 'src/hooks/useScroll.ts';
 
 

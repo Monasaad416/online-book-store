@@ -18,6 +18,7 @@
       /* Absolute path imports */
     "baseUrl": ".",
     "paths": {
+      "@sharedModule/*": ["src/Modules/SharedModule/*"],
       "@assets/*": ["src/assets/*"],
       "@authModule/*": ["src/Modules/AuthModule/*"],
       "@constants/*": ["src/Constants/*"],
@@ -32,7 +33,6 @@
       "@latestArticlesModule/*": ["src/Modules/LatestArticlesModule/*"],
       "@newReleaseModule/*": ["src/Modules/NewReleaseModule/*"],
       "@offersModule/*": ["src/Modules/OffersModule/*"],
-      "@sharedModule/*": ["src/Modules/SharedModule/*"],
       "@subscribeModule/*": ["src/Modules/SubscribeModule/*"],
       "@profileModule/*": ["src/Modules/ProfileModule/*"],
       "@confirmedOrderModule/*": ["src/Modules/ConfirmedOrderModule/*"],
@@ -43,7 +43,7 @@
       "@customTypes/*": ["src/types/*"],
       "@feedBack/*": ["src/Modules/FeedBack/*"],
       "@redux/*": ["src/redux/*"],
-
+      "@swiperNavButtons/*" :["src/Modules/SwiperNavButtonsModule/*"]
     },
 
     /* Linting */

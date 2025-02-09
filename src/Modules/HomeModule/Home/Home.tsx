@@ -1,7 +1,7 @@
 import { Navigation, Pagination, Scrollbar, A11y, EffectCube } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper.css';
-import 'swiper/modules/bundle.css';
+
+import 'swiper/swiper-bundle.css'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import book1 from "@assets/imgs/books/book3 4.png"
 import book2 from "@assets/imgs/books/book4 4.png"
@@ -10,7 +10,7 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import TopCategories from '@topCategoriesModule/TopCategories';
 import { lazy, Suspense } from 'react';
-const SwiperNavigation = lazy(() => import('@modules/SwiperNavButtonsModule/SwiperNavButtons'));
+const SwiperNavigation = lazy(() => import('@swiperNavButtons/SwiperNavButtons'));
 import FeaturedBooks from '@featuredBooksModule/FeaturedBooks';
 import Offers from '@offersModule/Offers';
 import Subscribe from '@subscribeModule/Subscribe';
