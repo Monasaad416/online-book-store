@@ -105,7 +105,7 @@ const Book: React.FC<IProps> = (props) => {
                             */}
 
 
-                              <AddToCart id={_id} quantity={1}/> 
+                              <AddToCart _id={_id} quantity={1}/> 
 
                             
                            <Typography gutterBottom component="p" sx={{ textAlign: 'center', fontWeight: '600', mt: 3 }}>

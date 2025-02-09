@@ -1,4 +1,4 @@
-import { TBookProps } from '@customTypes/BookProps';
+import { TAddToCart } from '@customTypes/AddToCartProps';
 import { TDecodedToken } from '@customTypes/decodedToken';
 import { Button} from '@mui/material';
 import { actGetCartItems, addToCart } from '@redux/cart/cartSlice'
@@ -8,8 +8,8 @@ import { jwtDecode } from "jwt-decode";
 import { toast } from 'react-toastify';
 
 
-const AddToCart: React.FC <TBookProps> = (props ) => {
-    const {_id} = props
+const AddToCart: React.FC <TAddToCart> = ({ _id, quantity } ) => {
+  
 
     // const {loading,error,items} = useAppSelector((state) => state.cart)
     const dispatch = useAppDispatch() 
@@ -24,7 +24,7 @@ const AddToCart: React.FC <TBookProps> = (props ) => {
         if(accessToken){
             if (accessToken && decodedUserToken) {
                 await dispatch(addToCart({book:_id , customerId: decodedUserToken.sub})); 
-                await dispatch(actAddNewItemToCart( {book:_id , quantity: 1}));
+                await dispatch(actAddNewItemToCart( {book:_id , quantity: quantity}));
                 toast.success('New item addedd to cart successfully', {
                     theme: "colored"
                 });

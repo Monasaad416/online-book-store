@@ -1,7 +1,6 @@
 
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import { THEMECOLOR } from '@constants/THEME_COLORS';
 import img1 from '@assets/imgs/articles/Rectangle 44.png';

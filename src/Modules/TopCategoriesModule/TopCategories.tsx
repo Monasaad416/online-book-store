@@ -78,7 +78,7 @@ const TopCategories: React.FC = () => {
                         {Array.from({ length: Math.ceil(value.length / 3) }).map((_, slideIndex) => (
                             <SwiperSlide key={slideIndex} >
                                 <Box display="flex" justifyContent="center" sx={{ mr:{xs:5,md:20},ml:{xs:5,md:20},mt:5,mb:5,pb:10 }}>
-                                    {value.slice(slideIndex * 3, slideIndex * 3 + 3).map((cat,index) => (
+                                    {value.slice(slideIndex * 3, slideIndex * 3 + 3).map((_,index) => (
                                         <img key={index} src={images[index]} alt="top_category" width="30%"/>       
                                     ))}
                                 </Box>

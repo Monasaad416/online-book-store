@@ -4,8 +4,6 @@ import { styled } from '@mui/material/styles';
 
 import EmailIcon from '@mui/icons-material/Email';
 import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import FormHelperText from '@mui/joy/FormHelperText';
 import Input from '@mui/joy/Input';
 import { THEMECOLOR } from '@constants/THEME_COLORS';
 

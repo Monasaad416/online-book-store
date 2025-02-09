@@ -7,7 +7,7 @@ const ConfirmedOrder = () => {
     const  navigate = useNavigate();
 
     const location = useLocation();
-    const { response } = location.state as { response: object };
+    const { response } = location.state as { response: {_id:string,total:number} };
     console.log(response)
     return (
         <Box sx={{ display:'flex',justifyContent:'center',alignItems:'center',mt:14 }}>
@@ -28,14 +28,14 @@ const ConfirmedOrder = () => {
                         Order Number : 
                     </Typography>
                     <Typography component="p" variant="body2" sx={{ fontSize:'12px',fontWeight:'400'}}>
-                        {response.data._id}
+                        {response._id}
                     </Typography>
 
                     <Typography component="p" variant="body2" sx={{ fontSize:'16px',fontWeight:'500'}}>
                         Total Amount : 
                     </Typography>
                     <Typography component="p" variant="body2" sx={{ fontSize:'12px',fontWeight:'400'}}>
-                        {response.data.total} $ 
+                        {response.total} $ 
                     </Typography>
                     <Button variant="outlined"  onClick={()=> navigate("/dashboard")}
                     sx={{ color: "#6251DD" ,width:"100%" ,padding:"8px 20px",marginTop:"20px",border:"1px solid #6251DD",

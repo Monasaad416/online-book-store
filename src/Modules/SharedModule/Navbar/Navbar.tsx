@@ -82,7 +82,7 @@ const Navbar = () => {
         </AppBar>
         <AppBar position="fixed" sx={{ mt: scrolled ? {xs:0,md:0 } : 7, backgroundColor: '#FFF',color:"#393280" 
                     ,pr: { xs: 1, sm: 2, lg: 3 },
-                    pl: { xs: 1, sm: 2, lg: 3 }, boxShadow:false}}
+                    pl: { xs: 1, sm: 2, lg: 3 }, boxShadow:'none'}}
                     >
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Grid container>
