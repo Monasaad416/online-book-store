@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Scrollbar, A11y, } from 'swiper/modules';
-import 'swiper/css/bundle';
+import 'swiper/modules/bundle.css';
 import book1 from"@assets/imgs/books/book3 4.png"
 import { THEMECOLOR } from '@constants/THEME_COLORS';
 import { useAppDispatch, useAppSelector } from '@redux/hook';
@@ -89,7 +89,7 @@ const NewRelease: React.FC = () => {
 
                                             </Typography>
                             
-<AddToCart {...book}/>
+                                            <AddToCart book={book._id} quantity={1}/>
                                     </Box>
                             
                                 </Box>

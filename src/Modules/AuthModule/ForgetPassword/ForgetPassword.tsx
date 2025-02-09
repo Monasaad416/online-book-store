@@ -30,10 +30,15 @@ const ForgetPassword: React.FC = () => {
             //   
             // }, 2000);   
     } catch (error) {
-        console.log(error);
-        toast.error(error,{
-            theme:"colored"
+      if (axios.isAxiosError(error) && error.response) {
+        toast.error(error.response.data?.message || 'An error occurred', {
+          theme: "colored"
         });
+      } else {
+        toast.error('An unexpected error occurred', {
+          theme: "colored"
+        });
+      }
     }
 
 }

@@ -3,18 +3,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import actGetCartItems from './actions/actGetCartItems';
 import actChangeItemQty from './actions/actChangeItemQty';
 import actAddNewItemToCart from './actions/actAddNewItemToCart';
-import { TProducts } from '@customTypes/products';
 import actDeleteItem from './actions/actDeleteItem';
 
 
 export interface ICartState {
   //its preferred to define key as string brcause js convert it to string 
   //item: {book_id,qty}
-  cartId?: string;
+  // cartId?: string;
   _id: string;
-  items: { book:string,quantity:number,_id:string}[];
+  items: { book:string,quantity:number ,_id?:string}[];
   customer: string;
-  productsInfo: TProducts;
+  productsInfo: { book:string,quantity:number ,price:number,name:string,_id:string}[];
   total: number;
   loading : TLoading;
   error: null | string 
@@ -38,16 +37,18 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<{ book: string, customerId: string }>) => {
+    addToCart: (state, action: PayloadAction<{ book: string; customerId: string }>) => {
       const { book, customerId } = action.payload;
       state.customer = customerId;
 
       const existingItem = state.items.find(item => item.book === book);
-
+console.log(action.payload)
       if (existingItem) {
+        console.log('existingItem')
         existingItem.quantity += 1;
       } else {
-        state.items = [...state.items, { book, quantity: 1, _id: '' }];
+         console.log('not existingItem')
+        state.items = [...state.items, { book, quantity: 1 }];
       }
 
      // console.log(state.items);
@@ -64,8 +65,9 @@ export const cartSlice = createSlice({
       state.error = null;
     });
 
-    builder.addCase(actGetCartItems.fulfilled, (state, action) => {
+    builder.addCase(actGetCartItems.fulfilled, (state, action:any) => {
       state.loading = "succeeded";
+      console.log(action.payload);
       state._id = action.payload._id //cartId
       state.items = action.payload.items;
       state.total = action.payload.total;

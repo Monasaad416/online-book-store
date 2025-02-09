@@ -1,5 +1,4 @@
-import { TProducts } from '@customTypes/products.ts';
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "@redux/store";
 import { TCartItems } from "@customTypes/cartItems.ts";
@@ -41,7 +40,7 @@ const actGetCartItems = createAsyncThunk(
 
       const items = response.data.items.filter(filteredItem => filteredItem.quantity > 0);
       const _id = response.data._id;
-      //console.log(response,items,_id);
+      console.log(items);
 
       if (!items) {
         return thunkAPI.rejectWithValue("No items found in cart");
@@ -50,7 +49,7 @@ const actGetCartItems = createAsyncThunk(
       //console.log('API Response:', response.data); // Log entire response
 
       let totalPrice = 0;
-      const productsInfo: TProducts = [];
+      const productsInfo: {book:string;quantity:number;price:number;name:string,_id?:string}[]= [];
 
       items.forEach(item => {
         //console.log('Item:', item); // Log each item
@@ -70,7 +69,7 @@ const actGetCartItems = createAsyncThunk(
           const productFullInfo = { ...item, price,name};
           productsInfo.push(productFullInfo);
 
-          //console.log(productFullInfo)
+         //console.log(productsInfo)
     
           
         } else {
@@ -78,10 +77,9 @@ const actGetCartItems = createAsyncThunk(
         }
       });
       
-
       return {_id:_id, items:items, total:totalPrice, productsInfo:productsInfo, customer: response.data.customer };
     } catch (error) {
-        return rejectWithValue(AxiosErrorHandler(error));
+        return isRejectedWithValue(AxiosErrorHandler(error));
     }
   }
 );

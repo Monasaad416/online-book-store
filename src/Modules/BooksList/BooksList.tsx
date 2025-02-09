@@ -1,8 +1,8 @@
 import { Box, Typography, Card, CardContent, Paper, Skeleton} from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/grid';
-import 'swiper/css/pagination';
+import 'swiper.css';
+import 'swiper/modules/grid.css';
+import 'swiper/modules/pagination.css';
 import { Pagination,Grid } from 'swiper/modules';
 import { useEffect } from 'react';
 
@@ -81,7 +81,7 @@ const BooksList: React.FC = () => {
                                             <img src={book1} className={`${styles.book_img}`} alt={book.name} />
                                             }
                                         </Paper>
-                                        <AddToCart {...book}/>
+                                        <AddToCart book={book._id} quantity={1} />
 
                                         
                                         <Typography gutterBottom component="p" sx={{ textAlign: 'center', fontWeight: 600, mt: 3 }}>

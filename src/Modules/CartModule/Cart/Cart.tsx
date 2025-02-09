@@ -17,6 +17,7 @@ import actDeleteItem from '@redux/cart/actions/actDeleteItem';
 import { removeCartProductsInfo } from '@redux/cart/cartSlice';
 import styles from './Cart.module.css';
 
+
 const Cart: React.FC = () => {
 
   const dispatch = useAppDispatch();
@@ -125,8 +126,8 @@ const handleSubmitForm = async () =>{
   }
 
   const address = await addressElement.getValue();
-  // const {error,token} = await stripe.createToken(cardElement);
-  const {error} = await stripe.createToken(cardElement);
+   const {error,token} = await stripe.createToken(cardElement);
+
   
 
   if(error) {
@@ -137,7 +138,7 @@ const handleSubmitForm = async () =>{
     if(address.complete === true) {
   
           const data = {
-            token: 'tok_visa',
+            token: token.id,
             delivery_address: {
               country: address?.value?.address?.country,
               city: address?.value?.address?.city,
@@ -155,11 +156,10 @@ const handleSubmitForm = async () =>{
               }
             }
           }
-              //console.log(accessToken);
         try {
         
 
-          //console.log(data,_id);
+          console.log(data,_id);
           const response = await axios.post(
           BASE_URLS.createOrder(_id), 
             data,
@@ -170,8 +170,8 @@ const handleSubmitForm = async () =>{
             }
           );
   
-          // console.log(response.data.data)
-          navigate('/dashboard/confirmed-order',{ state: { response: response.data.data } });
+          console.log(response);
+          navigate('/dashboard/confirmed-order',{ state: { response: response.data } });
         } catch (error) {
           if (axios.isAxiosError(error)) {
             console.error('Error:', error);

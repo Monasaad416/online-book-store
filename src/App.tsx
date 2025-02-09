@@ -70,7 +70,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Elements stripe={stripePromise}>
+      <Elements stripe={stripePromise} >
         <RouterProvider router={router}></RouterProvider>
       </Elements>
     </>

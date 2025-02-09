@@ -8,7 +8,7 @@ import { jwtDecode } from "jwt-decode";
 import { toast } from 'react-toastify';
 
 
-const AddToCart: React.FC <TAddToCart> = ({ _id, quantity } ) => {
+const AddToCart: React.FC <TAddToCart> = ({ book, quantity =1} ) => {
   
 
     // const {loading,error,items} = useAppSelector((state) => state.cart)
@@ -23,8 +23,8 @@ const AddToCart: React.FC <TAddToCart> = ({ _id, quantity } ) => {
      const handleAddToCart = async () => {
         if(accessToken){
             if (accessToken && decodedUserToken) {
-                await dispatch(addToCart({book:_id , customerId: decodedUserToken.sub})); 
-                await dispatch(actAddNewItemToCart( {book:_id , quantity: quantity}));
+                dispatch(addToCart({book:book , customerId: decodedUserToken.sub})); 
+                dispatch(actAddNewItemToCart( {book:book , quantity: quantity}));
                 toast.success('New item addedd to cart successfully', {
                     theme: "colored"
                 });

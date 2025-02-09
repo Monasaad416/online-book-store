@@ -1,4 +1,4 @@
 export type TAddToCart = {
-        _id:string;
+        book:string;
         quantity:number;
     }

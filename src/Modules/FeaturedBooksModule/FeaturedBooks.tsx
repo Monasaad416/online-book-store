@@ -1,6 +1,6 @@
 import { Pagination, Scrollbar, A11y, EffectCube } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css/bundle';
+import 'swiper/modules/bundle.css';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import featured_book from "@assets/imgs/featured_books/book.png"
 import { Box, Button, Grid, Typography } from '@mui/material';

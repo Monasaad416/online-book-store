@@ -1,6 +1,6 @@
 import {  Pagination, Scrollbar, A11y, EffectCube } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css/bundle';
+import 'swiper/modules/bundle.css';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
