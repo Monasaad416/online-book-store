@@ -23,8 +23,8 @@ const AddToCart: React.FC <TAddToCart> = ({ book, quantity =1} ) => {
      const handleAddToCart = async () => {
         if(accessToken){
             if (accessToken && decodedUserToken) {
-                dispatch(addToCart({book:book , customerId: decodedUserToken.sub})); 
-                dispatch(actAddNewItemToCart( {book:book , quantity: quantity}));
+                await dispatch(addToCart({book:book , customerId: decodedUserToken.sub})); 
+                await dispatch(actAddNewItemToCart( {book:book , quantity: quantity}));
                 toast.success('New item addedd to cart successfully', {
                     theme: "colored"
                 });

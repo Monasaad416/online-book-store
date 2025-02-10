@@ -21,7 +21,7 @@ import styles from './Cart.module.css';
 const Cart: React.FC = () => {
 
   const dispatch = useAppDispatch();
-  const [cartItems, setCartItems] = useState<{ book: string; quantity: number}[]>([]);
+  const [cartItems, setCartItems] = useState<{ book: string; quantity: number,_id?:string}[]>([]);
   const { _id,items, loading, total, productsInfo } = useAppSelector((state) => state.cart);//_id is cart id
   const {accessToken} = useAppSelector((state) => state.customerAccessToken);
   const navigate = useNavigate();
@@ -31,13 +31,10 @@ const Cart: React.FC = () => {
   // Fetch cart items on mount
   useEffect(() => {
     dispatch(actGetCartItems());
-
-
     // unmount
       return () => {
           dispatch(removeCartProductsInfo());
       };
-
   }, [dispatch]);
 
   // Initialize cartItems

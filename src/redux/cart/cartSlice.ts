@@ -13,7 +13,7 @@ export interface ICartState {
   _id: string;
   items: { book:string,quantity:number ,_id?:string}[];
   customer: string;
-  productsInfo: { book:string,quantity:number ,price:number,name:string,_id:string}[];
+  productsInfo: { book:string,quantity:number ,price:number,name:string,_id?:string}[];
   total: number;
   loading : TLoading;
   error: null | string 
@@ -41,15 +41,14 @@ export const cartSlice = createSlice({
       const { book, customerId } = action.payload;
       state.customer = customerId;
 
-      const existingItem = state.items.find(item => item.book === book);
-console.log(action.payload)
-      if (existingItem) {
-        console.log('existingItem')
-        existingItem.quantity += 1;
-      } else {
-         console.log('not existingItem')
-        state.items = [...state.items, { book, quantity: 1 }];
-      }
+     const items = Array.isArray(state.items) ? state.items : [];
+const existingItem = items.find(item => item.book === book);
+
+if (existingItem) {
+  existingItem.quantity += 1;
+} else {
+  state.items = [...items, { book:book,quantity: 1 }];
+}
 
      // console.log(state.items);
     },

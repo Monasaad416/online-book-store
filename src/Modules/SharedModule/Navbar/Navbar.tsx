@@ -1,23 +1,54 @@
-import { AppBar, Badge, Box, Divider, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Divider, Grid, IconButton, Toolbar, Typography } from '@mui/material';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import ListAltIcon from '@mui/icons-material/ListAlt';
 import logo from '../../../assets/imgs/footer/sample logo 1.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartIcon from '@sharedModule/CartIcon/CartIcon';
 import useScroll from 'src/hooks/useScroll.ts';
+import axios from 'axios';
+import { BASE_URLS } from '@constants/END_POINTS';
+import { toast } from 'react-toastify';
+import { useAppSelector } from '@redux/hook';
 
 
 const Navbar = () => {
 
     const scrolled = useScroll();
+    const navigate = useNavigate();
+     const {accessToken} = useAppSelector((state) => state.customerAccessToken);
+
+
+    const submit = async () => {
+        try {
+            const response = await axios.get(BASE_URLS.logout,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${accessToken}`,
+                    }
+                }
+            );
+            console.log(response);
+                // localStorage.setItem('customerAccessToken',response?.data?.data.accessToken);
+                // dispatch(emptyAccessToken()); 
+
+                toast.success(response?.data?.message, {
+                    theme: "colored"
+                });
+
+                navigate("/login");
+
+        } catch (err) {
+            console.log(err);
+            toast.error("Logout Failed!",{
+                theme:"colored"
+            });
+        }
+
+        }
     
     return (
     <Box sx={{ pl:-1,pr:-1,ml:-1,mr:-1 ,mt:-1}}>
@@ -100,14 +131,14 @@ const Navbar = () => {
                             <Link to="/dashboard/new-release" style={{ textDecoration: 'none' }}> 
                                 <Typography component="li" sx={{m:{xs:1,md:2}, fontWeight:"normal",fontSize:{xs:18,sm:18,md:25,textWrap:'nowrap'}}}>New Release</Typography>
                             </Link>
-                            <Link to="/dashboard/new-release" style={{ textDecoration: 'none' }}> 
+                            {/* <Link to="/dashboard/new-release" style={{ textDecoration: 'none' }}> 
                                 <Typography component="li" sx={{m:{xs:1,md:2}, fontWeight:"normal",fontSize:{xs:18,sm:18,md:25,textWrap:'nowrap'}}}>Blog</Typography>
-                            </Link>
+                            </Link> */}
                         </Box>
                     </Grid>
                     <Grid item sm={12} md={6}>
                     <Box component="ul" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,listStyleType:"none" }}>
-                        <Link to="/dashboard/my-profile" style={{ textDecoration: 'none' }}>
+                        {/* <Link to="/dashboard/my-profile" style={{ textDecoration: 'none' }}>
                             <IconButton
                 
                                 edge="start"
@@ -130,7 +161,7 @@ const Navbar = () => {
                             <ListAltIcon />
                             </IconButton>
                             
-                        </Link>
+                        </Link> */}
                             <Divider orientation="vertical" variant="middle" flexItem />
                         <Link to="/dashboard/cart" style={{ textDecoration: 'none' }}>
                             <IconButton
@@ -146,7 +177,7 @@ const Navbar = () => {
                             </IconButton>
                             <Divider orientation="vertical" variant="middle" flexItem />
                         </Link>   
-                        <Link to="/dashboard/wishlist" style={{ textDecoration: 'none' }}>    
+                        {/* <Link to="/dashboard/wishlist" style={{ textDecoration: 'none' }}>    
                             <IconButton
                     
                                     edge="start"
@@ -158,9 +189,9 @@ const Navbar = () => {
                                     <FavoriteBorderOutlinedIcon />
                                 </Badge >  
                             </IconButton>
-                        </Link> 
+                        </Link>  */}
                             <Divider orientation="vertical" variant="middle" flexItem />
-                        <Link to="/logout" style={{ textDecoration: 'none' }}>    
+                        <Link to="/logout" style={{ textDecoration: 'none' }} onClick={ submit}>    
                             <IconButton
                     
                                     edge="start"

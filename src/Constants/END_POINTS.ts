@@ -16,6 +16,7 @@ export const BASE_URLS = {
     updateBasketItem: (_id: string) => `${BASE}/basket/${_id}`,//_id = cart id  /api/basket/item
     deleteBasketItem:  `${BASE}/basket/item`,
     createOrder: (_id: string) => `${BASE}/order/${_id}`,
+    logout:`${BASE_AUTH}/logout`
     
     
 }
